@@ -10,5 +10,5 @@ output "ec2_instance_id" {
 
 output "ssh_command" {
   description = "Command to SSH into the instance"
-  value       = "ssh -i ~/.ssh/id_rsa ubuntu@${aws_instance.web.public_ip}"
+  value       = "ssh -i ~/.ssh/aws-ec2-key ubuntu@${aws_instance.web.public_ip}"
 }

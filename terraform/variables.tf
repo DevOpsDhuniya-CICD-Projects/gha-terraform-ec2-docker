@@ -1,7 +1,7 @@
 variable "aws_region" {
   description = "AWS region to deploy the resources"
   type        = string
-  default     = "ap-south-1"
+  default     = "us-east-1"
 }
 
 variable "instance_type" {
@@ -13,13 +13,13 @@ variable "instance_type" {
 variable "key_name" {
   description = "Name of the SSH key pair"
   type        = string
-  default     = "devops-key"
+  default     = "aws-ec2-key"
 }
 
 variable "public_key_path" {
   description = "Path to the SSH public key file"
   type        = string
-  default     = "~/.ssh/id_rsa.pub"
+  default     = "~/.ssh/aws-ec2-key.pub"
 }
 
 variable "instance_name" {

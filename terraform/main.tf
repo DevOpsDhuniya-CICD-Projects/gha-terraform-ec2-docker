@@ -1,18 +1,18 @@
 provider "aws" {
-  region = "ap-south-1"
+  region = var.aws_region
 }
 
 resource "aws_key_pair" "deployer" {
-  key_name   = "devops-key"
-  public_key = file("~/.ssh/id_rsa.pub")
+  key_name   = var.key_name
+  public_key = file(var.public_key_path)
 }
 
 resource "aws_instance" "web" {
-  ami           = "ami-0f58b397bc5c1f2e8" # Ubuntu (Mumbai)
-  instance_type = "t2.micro"
+  ami           = "ami-0f58b397bc5c1f2e8"
+  instance_type = var.instance_type
   key_name      = aws_key_pair.deployer.key_name
 
   tags = {
-    Name = "DevOps-CICD-Instance"
+    Name = var.instance_name
   }
 }
